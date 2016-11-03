@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>Weather App Learning</title>
     <!--Library CDNs  -->
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -12,6 +14,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.2.0.js"></script>
+
 
     <script type="text/javascript" src="app.js"></script>
 
@@ -52,13 +60,44 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <h3>Here are the Weather Details for {{selectedCity}}</h3>
-    <ul>
-      <li>Humidity Percentage:{{humidity}}</li>
-      <li>Temperature:{{temperature}}</li>
-      <li>Wind Speed:{{windspeed}}m/s</li>
-      <li>Weather :{{weatherMain}}</li>
-    </ul>
+    <h2>Here are the Weather Details for Selected City for the next 5 Days</h2>
+    <uib-tabset active="activeJustified" justified="true">
+      <uib-tab index="0" ng-click="callTab(0)" heading="Day 1">
+        <table>
+          <tr>
+              <td>Date</td>
+              <td>Humidity %</td>
+              <td>Pressure</td>
+              <td>Rainfall</td>
+              <td>Temperature *c</td>
+              <td>Weather Description</td>
+              <td>Wind Speed</td>
+          </tr>
+          <tr ng-repeat="data in weatherDataArray">
+            <td>{{data.date}}</td>
+            <td>{{data.humidity}}</td>
+            <td>{{data.pressure}}</td>
+            <td>{{data.rainfall}}</td>
+            <td>{{data.temperature}}</td>
+            <td>{{data.description}}</td>
+            <td>{{data.windspeed}}</td>
+          </tr>
+        </table>
+
+      </uib-tab>
+      <uib-tab index="1" ng-click="callTab(1)" heading="Day 2">
+
+      </uib-tab>
+      <uib-tab index="2" ng-click="callTab(2)" heading="Day 3">
+
+      </uib-tab>
+      <uib-tab index="3" ng-click="callTab(3)" heading="Day 4">
+
+      </uib-tab>
+      <uib-tab index="4" ng-click="callTab(4)" heading="Day 5">
+
+      </uib-tab>
+    </uib-tabset>
 
 
 
