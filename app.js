@@ -1,6 +1,3 @@
-
-
-
   //my API key 66bc55e03fcdf78423c542c226934503
 
 var app = angular.module('weatherApp',[]);
