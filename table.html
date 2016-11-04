@@ -1,0 +1,18 @@
+<table>
+  <tr ng-show="val">
+      <td>Date</td>
+      <td>Humidity %</td>
+      <td>Pressure hPa</td>
+      <td>Temperature *c</td>
+      <td>Weather Description</td>
+      <td>Wind Speed</td>
+  </tr>
+  <tr ng-repeat="data in weatherDataArray">
+    <td>{{data.Date}}</td>
+    <td>{{data.Humidity}}</td>
+    <td>{{data.Pressure}}</td>
+    <td>{{data.Temperature}}</td>
+    <td>{{data.WeatherDescMain}}</td>
+    <td>{{data.WindSpeed}}</td>
+  </tr>
+</table>

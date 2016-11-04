@@ -4,24 +4,19 @@
   <head>
     <meta charset="utf-8">
     <title>Weather App Learning</title>
-    <!--Library CDNs  -->
-
+    <!--CDNs-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
     <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.2.0.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-
+    <!--Enable this if running from node  -->
+    <!--<script src="/node_modules/angular/angular.js"></script>  -->
     <script type="text/javascript" src="app.js"></script>
-
+    <link rel="stylesheet" href="style.css">
 
 
   </head>
@@ -61,12 +56,13 @@
     </nav>
     <h2>Here are the Weather Details for Selected City for the next 5 Days</h2>
     <uib-tabset active="activeJustified" justified="true">
-      <uib-tab index="0" ng-click="callTab(4)" heading="Day 1">
+      <uib-tab index="0"  ng-click="callTab(4)" heading="Day 1">
+        <!--tableDirective can be used in node to avoid repetition  -->
         <table>
-          <tr>
+          <tr ng-show="val">
               <td>Date</td>
               <td>Humidity %</td>
-              <td>Pressure</td>
+              <td>Pressure hPa</td>
               <td>Temperature *c</td>
               <td>Weather Description</td>
               <td>Wind Speed</td>
@@ -84,10 +80,10 @@
       </uib-tab>
       <uib-tab index="1" ng-click="callTab(3)" heading="Day 2">
         <table>
-          <tr>
+          <tr ng-show="val">
               <td>Date</td>
               <td>Humidity %</td>
-              <td>Pressure</td>
+              <td>Pressure hPa</td>
               <td>Temperature *c</td>
               <td>Weather Description</td>
               <td>Wind Speed</td>
@@ -107,10 +103,10 @@
 
       <uib-tab index="2" ng-click="callTab(2)" heading="Day 3">
         <table>
-          <tr>
+          <tr ng-show="val">
               <td>Date</td>
               <td>Humidity %</td>
-              <td>Pressure</td>
+              <td>Pressure hPa</td>
               <td>Temperature *c</td>
               <td>Weather Description</td>
               <td>Wind Speed</td>
@@ -130,10 +126,10 @@
 
       <uib-tab index="3" ng-click="callTab(1)" heading="Day 4">
         <table>
-          <tr>
+          <tr ng-show="val">
               <td>Date</td>
               <td>Humidity %</td>
-              <td>Pressure</td>
+              <td>Pressure hPa</td>
               <td>Temperature *c</td>
               <td>Weather Description</td>
               <td>Wind Speed</td>
@@ -153,10 +149,10 @@
 
       <uib-tab index="4" ng-click="callTab(0)" heading="Day 5">
         <table>
-          <tr>
+          <tr ng-show="val">
               <td>Date</td>
               <td>Humidity %</td>
-              <td>Pressure</td>
+              <td>Pressure hPa</td>
               <td>Temperature *c</td>
               <td>Weather Description</td>
               <td>Wind Speed</td>
@@ -174,10 +170,6 @@
 
 
     </uib-tabset>
-
-
-
-
 
   </body>
 </html>
