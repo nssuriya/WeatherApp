@@ -6,13 +6,9 @@ app.controller('weatherAppController',function($scope){
   $scope.cityList=['Chennai'];
   $scope.selectedCity="";
   $scope.weatherData=[];
-  // $scope.humidity="";
-  // $scope.temperature="";
-  // $scope.windspeed="";
-  // $scope.weatherMain="";
-  // $scope.weatherData={};
 
 
+  $scope.weatherDataArray=[];
 
 
   $scope.selectedCityId=1264527;
@@ -27,35 +23,36 @@ app.controller('weatherAppController',function($scope){
         {
         // console.log(data);
 
-        //for getting only the dates as array
-        for(i=0;i<data.list.length;i++){
-          var temp=data.list[i];
-          var temp2=temp.dt_txt.split(" ");
-          var date=temp2[0];
-          $scope.weatherData[date]=[];
-        }
-        //console.log($scope.weatherData);
-         for(i=0;i<data.list.length;i++){
-           var temp=data.list[i];
-           var temp2=temp.dt_txt.split(" ");
-           var date=temp2[0];
 
-            $scope.weatherData[date].push({"Date":temp.dt_txt,
+
+      //  console.log(data.list);
+
+         for(i=data.list.length-1;i>=0;){
+
+           var tmpArray=[];
+            for(k=0;k<8;k++){
+
+            //  console.log(i);
+            var temp=data.list[i];
+            tmpArray.push({          "Date":temp.dt_txt,
                                      "Humidity":temp.main.humidity,
                                      "Pressure":temp.main.pressure,
                                      "Temperature":temp.main.temp,
-                                     "Rain":temp.rain["3h"],
                                      "WindSpeed":temp.wind.speed,
                                      "WeatherDescription":temp.weather[0].description,
                                      "WeatherDescMain":temp.weather[0].main
                                    });
+            i--;
+            if(i==-1)
+            break;
+
+                              };//end of K for loop
+            $scope.weatherData.push(tmpArray);
 
 
           };
           //console.log($scope.weatherData);
-          for(eachday in $scope.weatherData){
-            console.log(eachday);
-          }
+          $scope.weatherDataArray=$scope.weatherData[4];
 
         },//end of success
 
@@ -70,13 +67,13 @@ app.controller('weatherAppController',function($scope){
 
   };
 
-  $scope.weatherDataArray=[];
+
 
 
 
   $scope.callTab = function(index){
-    //console.log($scope.weatherData);
-
+    $scope.weatherDataArray=$scope.weatherData[index];
+    //console.log($scope.weatherDataArray);
   };
 
 
