@@ -18,8 +18,10 @@ There are 2 versions because of the unavailability of node and npm on the system
 1. Install Node Js
 2. Install Git Bash
 3. Open Git Bash and run the following commands
-    npm Install
-    static -a 0.0.0.0
+    *git clone https://github.com/nssuriya/WeatherApp.git
+    *cd WeatherApp
+    *npm Install
+    *static -a 0.0.0.0
 ```
 
 
